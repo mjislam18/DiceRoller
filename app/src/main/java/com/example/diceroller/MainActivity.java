@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -53,16 +54,25 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void on_button_Click(View view){
+    public void on_button_Click(View view) {
 
         TextView TV = this.findViewById(R.id.NumTextView);
+        TextView EG = (TextView) this.findViewById(R.id.EnterGuess);
 
 
         Random r = new Random();
-        int num = r.nextInt(6) + 1;
+        int num = r.nextInt(6);
 
         TV.setText(Integer.toString(num));
 
-    }
 
+        int Number = Integer.valueOf(TV.getText().toString());
+        int UserGuess = Integer.valueOf(EG.getText().toString());
+
+        if (UserGuess == Number) {
+            Toast.makeText(getApplicationContext(), "Congratulations", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
