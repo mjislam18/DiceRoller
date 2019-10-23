@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -54,25 +55,30 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void on_button_Click(View view) {
 
         TextView TV = this.findViewById(R.id.NumTextView);
         TextView EG = (TextView) this.findViewById(R.id.EnterGuess);
-
+        TextView SC = (TextView) this.findViewById(R.id.ScoreText);
 
         Random r = new Random();
-        int num = r.nextInt(6);
+        int num = r.nextInt(6) +1;
 
         TV.setText(Integer.toString(num));
-
 
         int Number = Integer.valueOf(TV.getText().toString());
         int UserGuess = Integer.valueOf(EG.getText().toString());
 
         if (UserGuess == Number) {
-            Toast.makeText(getApplicationContext(), "Congratulations", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "Try Again", Toast.LENGTH_SHORT).show();
+
+        int Score = Integer.valueOf(SC.getText().toString());
+        int ScoreCheck = Score +1;
+
+        SC.setText(Integer.toString(ScoreCheck));
+        Toast.makeText(getApplicationContext(), "Congratulations", Toast.LENGTH_SHORT).show();
+
         }
-    }
+        }
 }
+
