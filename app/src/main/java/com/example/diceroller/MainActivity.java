@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
     }
 
     @Override
@@ -53,19 +56,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
+
     }
 
-
     public void on_button_Click(View view) {
+
+        roll_the_dice();
 
         TextView TV = this.findViewById(R.id.NumTextView);
         TextView EG = (TextView) this.findViewById(R.id.EnterGuess);
         TextView SC = (TextView) this.findViewById(R.id.ScoreText);
-
-        Random r = new Random();
-        int num = r.nextInt(6) +1;
-
-        TV.setText(Integer.toString(num));
 
         int Number = Integer.valueOf(TV.getText().toString());
         int UserGuess = Integer.valueOf(EG.getText().toString());
@@ -80,5 +81,45 @@ public class MainActivity extends AppCompatActivity {
 
         }
         }
+
+    public void on_button_Click2(View view) {
+        roll_the_dice();
+
+        TextView TV = this.findViewById(R.id.NumTextView);
+        TextView MS = this.findViewById(R.id.Txt_Message);
+
+        int Number = Integer.valueOf(TV.getText().toString());
+
+        if (Number == 1){
+            MS.setText("If you could go any where in the world where would you go?");
+        }else if (Number == 2){
+            MS.setText("If you were stranded on a desert island, what three things would you want to take with you?");
+        }
+        else if (Number == 3){
+            MS.setText("If you could eat only one food for the rest of your life what would it be?");
+        }
+        else if (Number == 4){
+            MS.setText("If you won a million dollars what is the first thing you would buy?");
+        }
+        else if (Number == 5){
+            MS.setText("If you could spend the day with one fictional character who would it be?");
+        }
+        else if (Number == 6){
+            MS.setText("If you found a magic lantern and a genie gave you three wishes,what would you wish?");
+        }
+
+    }
+
+    public void roll_the_dice(){
+
+        TextView TV = this.findViewById(R.id.NumTextView);
+
+        Random r = new Random();
+        int num = r.nextInt(6) +1;
+
+        TV.setText(Integer.toString(num));
+
+    }
+
 }
 
