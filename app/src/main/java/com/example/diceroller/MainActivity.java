@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void roll_the_dice(){
 
         TextView TV = this.findViewById(R.id.NumTextView);
